@@ -1,0 +1,1597 @@
+<!-- google Analytics script start -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78435339-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- google Analytics script end -->
+<!-- 繁體TW or 簡體CN : CODEPAGE="950" or "65001" / charset="big5" or "utf-8"	-->
+
+<!-- serach & replace < CN > or < TW > such as [ topMenu /  index_QueryFilter / index_QueryResult / basicInfo ]	-->
+
+
+<!--*********************************	-->
+
+<!--*********************************	-->
+
+<html prefix="og: http://ogp.me/ns#">
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78435339-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-78435339-1');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<meta property="og:title" content="卓著樂譜"></meta>
+<meta property="og:description" content="最新排行/豆芽譜/五線譜" ></meta>
+<meta property="og:image" content="http://www.musicbook.com.tw/image/logoFull.png" ></meta>
+<meta property="og:url" content="http://www.musicbook.com.tw/searchSong/index.asp"></meta>
+<meta property="og:type" content="website"></meta>
+<meta property="og:site_name" content="卓著樂譜"></meta>
+<title></title>
+<link rel="stylesheet" type="text/css" href="../Music.css" />
+<link rel="stylesheet" type="text/css" href="searchSong.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<!--漂亮alert 模組 (alertify)-->
+<script src="/JQuery/alertify/lib/alertify.min.js"></script>
+<link rel="stylesheet" href="/JQuery/alertify/css/alertify.core.css" />
+<link rel="stylesheet" href="/JQuery/alertify/css/alertify.default.css" />
+<!--漂亮alert 模組 (alertify)-->
+
+<!--漂亮 mouseOver 模組 (/css/mouseOver.css)-->
+<script type="text/javascript" src="/JQuery/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/JQuery/mouseOver/css/mouseOver.css">
+<!--漂亮 mouseOver 模組 (/css/mouseOver.css)-->
+
+<!-- <input type=text> 的預設文字顏色設定(設定為更淡的灰色)	-->
+<style type="text/css">
+input::-webkit-input-placeholder { /* WebKit browsers */
+color:BBBBBB;font-size:13px;}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color:BBBBBB;}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+color:BBBBBB;}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+color:BBBBBB;}
+</style>
+<!-- <input type=text> 的預設文字顏色設定(設定為更淡的灰色)	-->
+
+<script language="JavaScript" type="text/JavaScript">
+//<!--修改 alertify.confirm的文字 -->
+alertify.set
+(
+	{	
+		labels : 
+		{
+			ok   : "我要結帳",
+			cancel : "繼續挑選單曲"
+		},
+		delay : 5000,
+		buttonReverse : false,
+		buttonFocus  : "ok"
+	}
+);
+//<!--修改 alertify.confirm的文字 -->
+
+
+//<!--漂亮 mouseOver 模組 (/css/mouseOver.css)-->
+$(function(){
+	// 當滑鼠移到 #go .txt 上時, 讓它能自動取得焦點
+	// 並且取得焦點時加上自訂的樣式
+	$('#go .txt').focus(function(){
+		// 當 .txt 取得焦點時
+		// 加上自訂的 .focus 樣式
+		$(this).addClass('focus');
+	}).blur(function(){
+		// 當 .txt 失去焦點時
+		// 移除自訂的 .focus 樣式
+		$(this).removeClass('focus');
+	}).mouseover(function(){
+		// 當滑鼠移到 .txt 上時
+		// 讓 .txt 自動取得焦點
+		$(this).focus();
+	});
+});
+//<!--漂亮 mouseOver 模組 (/css/mouseOver.css)-->
+
+
+
+
+// 換頁
+function pageChange(changeUrl)
+{
+	document.go.action = changeUrl;
+	document.go.submit();
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+
+function centerWindow(theURL,winName,width,height,features) {
+//織夢平台 http://www.e-dreamer.idv.tw
+//分享是成長的開始
+    var window_width = width;
+    var window_height = height;
+    var edfeatures= features;
+    var window_top = (screen.height-window_height)/2;
+    var window_left = (screen.width-window_width)/2;
+    newWindow=window.open(''+ theURL + '',''+ winName + '','width=' + window_width + ',height=' + window_height + ',top=' + window_top + ',left=' + window_left + ',features=' + edfeatures + '');
+    newWindow.focus();
+}
+
+function YY_checkform() 
+{ //v4.65	//copyright (c)1998,2002 Yaromat.com
+	var args = YY_checkform.arguments; var myDot=true; var myV=''; var myErr='';var addErr=false;var myReq;var blank=0;
+	for (var i=1; i<args.length;i=i+4)
+	{
+		if (args[i+1].charAt(0)=='#')
+		{
+			myReq=true; args[i+1]=args[i+1].substring(1);
+		}
+		else
+		{
+			myReq=false
+		}
+		var myObj = MM_findObj(args[i].replace(/\[\d+\]/ig,""));
+		myV=myObj.value;
+		if (myObj.type=='text'||myObj.type=='password'||myObj.type=='hidden')
+		{	
+			if (myReq&&myObj.value.length==0)
+			{	
+				blank++;
+				addErr=true
+			}
+			if ((myV.length>0)&&(args[i+2]==1))
+			{ //fromto
+				var myMa=args[i+1].split('_');
+				if(isNaN(parseInt(myV))||myV<myMa[0]/1||myV > myMa[1]/1)
+				{
+					addErr=true
+				}
+			} 
+			else if ((myV.length>0)&&(args[i+2]==2))
+			{
+				var rx=new RegExp("^[\\w\.=-]+@[\\w\\.-]+\\.[a-z]{2,4}$");
+				if(!rx.test(myV))
+					addErr=true;
+			} 
+			else if ((myV.length>0)&&(args[i+2]==3))
+			{ // date
+				var myMa=args[i+1].split("#"); 
+				var myAt=myV.match(myMa[0]);
+				if(myAt)
+				{
+					var myD=(myAt[myMa[1]])?myAt[myMa[1]]:1; 
+					var myM=myAt[myMa[2]]-1; 
+					var myY=myAt[myMa[3]];
+					var myDate=new Date(myY,myM,myD);
+					if(myDate.getFullYear()!=myY||myDate.getDate()!=myD||myDate.getMonth()!=myM)
+					{
+						addErr=true
+					};
+				}
+				else
+				{
+					addErr=true
+				}
+			} 
+			else if ((myV.length>0)&&(args[i+2]==4))
+			{ // time
+				var myMa=args[i+1].split("#"); 
+				var myAt=myV.match(myMa[0]);
+				if(!myAt)
+				{
+					addErr=true
+				}
+			} 
+			else if (myV.length>0&&args[i+2]==5)
+			{ // check this 2
+				var myObj1 = MM_findObj(args[i+1].replace(/\[\d+\]/ig,""));
+				if(myObj1.length)
+					myObj1=myObj1[args[i+1].replace(/(.*\[)|(\].*)/ig,"")];
+				if(!myObj1.checked)
+				{
+					addErr=true
+				}
+			} 
+			else if (myV.length>0&&args[i+2]==6)
+			{ // the same
+				var myObj1 = MM_findObj(args[i+1]);
+				if(myV!=myObj1.value)
+					{addErr=true}
+			}
+		} 
+		else if (!myObj.type&&myObj.length>0&&myObj[0].type=='radio')
+		{
+			var myTest = args[i].match(/(.*)\[(\d+)\].*/i);
+			var myObj1=(myObj.length>1)?myObj[myTest[2]]:myObj;
+			if (args[i+2]==1&&myObj1&&myObj1.checked&&MM_findObj(args[i+1]).value.length/1==0)
+				{addErr=true}
+			if (args[i+2]==2)
+			{
+				var myDot=false;
+				for(var j=0;j<myObj.length;j++)
+				{
+					myDot=myDot||myObj[j].checked
+				}
+				if(!myDot)
+				{
+					myErr+='* ' +args[i+3]+'\n'
+				}
+			}
+		} 
+		else if (myObj.type=='checkbox')
+		{
+			if(args[i+2]==1&&myObj.checked==false)
+				{addErr=true}
+			if(args[i+2]==2&&myObj.checked&&MM_findObj(args[i+1]).value.length/1==0)
+				{addErr=true}
+		} 
+		else if (myObj.type=='select-one'||myObj.type=='select-multiple')
+		{
+			if(args[i+2]==1&&myObj.selectedIndex/1==0)
+				{addErr=true}
+		}
+		else if (myObj.type=='textarea')
+		{
+			if(myV.length<args[i+1])
+				{addErr=true}
+		}
+		if (addErr)
+			{myErr+=' '+args[i+3]; addErr=false}
+	}
+	if (blank != 5)
+	{
+		myErr = '';
+	}
+	if (myErr!='')
+	{
+		alert('The required information is incomplete or contains errors:\t\t\t\t\t\n\n'+myErr)
+	}
+	document.MM_returnValue = (myErr=='');
+}
+
+function fnOpen()
+{
+	window.showModalDialog("reference.asp", "", "dialogHeight:250px;dialogWidth:660px;status:no");
+}
+
+function oneSongBuyRefOpen()
+{
+//	window.open("oneSongBuyRef.asp", "", "dialogHeight:650px;dialogWidth:750px;status:no");
+myWindow=window.open("oneSongBuyRef.asp","","width=950px,height=680px,top=20,left=230,location=no,status=no,titlebar=no,menubar=no,status=no");
+myWindow.focus()
+
+}
+
+function shoppingCarEZOpen()
+{
+		document.go.action="shoppingCarEZ/index_TW.asp";
+		document.go.submit();
+}
+
+function addOrder(order,songName,singer)
+{	
+	orderItem = order;
+
+	if (document.go["OrderS"].value == "" )
+	{
+		document.go["OrderS"].value = orderItem;
+	}
+	else
+	{
+		document.go["OrderS"].value = document.go["OrderS"].value + "~" + orderItem;
+	}
+	alertify.confirm
+	( ("曲名 : " + songName).fontcolor("red").bold() + "<br>" + ("演唱歌手 : " + singer).fontcolor("blue").bold()  + "<br><br>" +  ("已加入購物車").fontcolor("green"), function (e) 
+		{  
+		  if (e) 
+		  {  
+			document.go.action="shoppingCarEZ/index_TW.asp";
+			document.go.submit();	
+			alertify.success("我要結帳");  
+		  } 
+		  else 
+		  {  
+			alertify.error("採購完畢時請點選[我要結帳]");  
+		  }  
+		}
+	);
+}
+
+function teach()
+{
+		document.go.action="https://www.youtube.com/watch?v=bqSlIGTt69o";
+		document.go.target="_blank"
+		document.go.submit();
+}
+
+//20190830刪除
+//function CN()
+//{
+//		document.go.action="http://www.musicbook.com.tw/searchSongCN/index.asp";
+//		document.go.submit();
+//}
+
+
+function DocLoad()
+{
+	if ("16967" != "0")
+	{
+//		document.all.ClassSubName.value="";
+		document.all.SongName.value="";
+		document.all.Singer.value="";
+		document.all.SerialNo.value="";
+		document.all.orderby.value="SerialNo desc, page";
+	}
+
+	if ("42" == "1")
+	{
+		
+//		oneSongBuyRefOpen();
+	}
+
+}
+
+</script>
+
+<!--<script language="javascript" src="public.js"></script>-->
+
+</head>
+
+<body leftMargin=0  topMargin=0  bgcolor="#FFFFFF" text="#000000" link="#FFCC00" vlink="#CC6600"  onload="DocLoad();" >
+
+
+
+<!--	上方Menu選單	-->
+<TABLE  border="0" cellpadding="0" cellspacing="0" ALIGN="center" >
+	<TR>
+		<TD width="200px" >&nbsp;
+		</TD>
+
+		<TD ALIGN="center">
+			<table>
+			<tr>
+				<td  ALIGN="center">			     
+					<img src="/image/TitleLOGO.jpg"  width="800" height="80"></img>
+				</td>
+			</tr>
+
+			<tr>
+				<td  ALIGN="center" >
+					<a href="https://www.musicbook.com.tw/">首頁</a> ｜ 
+					<a href="https://www.musicbook.com.tw/about/index.asp">關於卓著</a> ｜ 
+					<a href="https://www.musicbook.com.tw/searchSong/index.asp">曲目查詢</a> ｜
+					<a href="https://www.musicbook.com.tw/VS2.0/login.asp">線上樂譜</a> ｜						
+					<a href="https://www.facebook.com/musicbook.com.tw">推薦歌曲</a> ｜ 
+					<a href="https://www.musicbook.com.tw/howBuy/index.asp">如何購書</a> ｜ 
+					<a href="https://shop.musicbook.com.tw/">網路購書</a> ｜ 
+					<a href="https://www.facebook.com/musicbook.com.tw">卓著臉書</a> ｜ 
+					<a href="mailto:cho@musicbook.com.tw">聯絡我們</a>
+				</td>
+			</tr>
+			</table>
+		</TD>
+		<TD width="200px" align="center" rowspan="2">
+				<table>
+					<tr>
+						<td align="center">
+						<!--
+				<a target="_self" href="https://www.musicbook.com.tw/searchSong/index_CN.asp" style="color:black;text-decoration:none;font-weight:bold;"><img src="/image/CNT_CNS.jpg"  width="60px" height="60px"></img></a>
+						--> <!--<br>曲目查詢.切換簡體-->
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<!--
+				<a href="https://www.musicbook.com.tw/searchSong/index_CN.asp">单曲购买/曲目查询</a>
+						-->
+						</td>
+					</tr>
+				</table>
+		</TD>
+	</TR>
+</TABLE>     
+<!--	上方Menu選單結束	-->
+
+
+
+<form action="index.asp" method="post" name="go" id="go" onSubmit="YY_checkform('go','ClassSubName','#q','0','請輸入 [書名] 或 [曲名] 或 [演唱歌手姓名] 或 [冊別] 任一項 再送出 <查詢>！','SongName','#q','0','','Singer','#q','0','','SerialNo','#q','0','');return document.MM_returnValue">
+<div align="center">
+	<TABLE>
+		<TR> 
+			<!--	左留白	-->
+			<TD width="10" height="19">
+				&nbsp;
+			</TD>
+
+	        <TD width="1220" valign="top">
+				<!--回首頁資訊-->			
+			</TD>
+			<TD width="10">
+				&nbsp;
+			</TD>
+		</TR>
+		
+		<TR> 
+			<TD height="596">
+				&nbsp;
+			</TD>
+			<TD valign="top">
+				<!--回首頁資訊-->
+          
+				<!--	主Table[曲目查詢]區(查詢條件+查詢結果)	 -->
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+					<tr> 
+					<P> 
+						<td> 
+							<!--	查詢條件區	-->
+														<table width="100%" border="0" cellpadding="0" cellspacing="0">
+								<tr bgcolor="#ffffff"> 
+									<td width="35%">
+										<img src="images/search.gif" align="absmiddle"> 
+										<font class="style3">曲名：</font>
+										<input name="SongName" type="text"  size="21" value="" class="txt" placeholder="[简体]/[繁体]輸入皆通用" > 
+									</td>
+									<td width="25%">
+										<img src="images/search.gif" align="absmiddle"> 
+										<font class="style3">歌手：</font> 
+										<input name="Singer" type="text"  size="21" value="" class="txt" placeholder="[简体]/[繁体]輸入皆通用" > 
+									</td>
+									<td colspan="2">
+<!--
+										<p style="font-weight:bold; font-size:20px; height: 40px; border-radius:10px; cursor:pointer; color:red"><a  href="https://www.google.com/intl/zh-TW_ALL/chrome/" target="_blank"> ※請使用<img src="images/chrome.png"  height="40px" align="absmiddle"> 瀏覽器，以防訂購失敗※ </a></p>
+-->
+									</td>
+								</tr>
+								<tr bgcolor="#ffffff"> 
+									<td>
+										<img src="images/search.gif" align="absmiddle"> 
+										<font class="style3">書名：</font> 
+										<Select id="ClassSubName" name="ClassSubName" class="txt">
+											 <option value='' style='background-color: #DDFFDD;' >任意書冊</option> <option value='1_01'  style='background-color: yellow;'  >最新排行(簡譜)：最新單曲</option><option value='2_00'  style='background-color: yellow;'  >單曲豆芽譜：最新單曲</option><option value='3_00'  style='background-color: yellow;'  >流行吉他六線譜：最新單曲</option><option value='3_14'  style='background-color: yellow;'  >流行吉他重奏：最新單曲</option><option value='1_22'  style='background-color: #DDFFDD;'  >校園民歌精選(簡譜)</option><option value='1_23'  style='background-color: #DDFFDD;'  >台語精選(簡譜)</option><option value='1_25'  style='background-color: #DDFFDD;'  >最愛鄧麗君(簡譜)</option><option value='1_26'  style='background-color: #DDFFDD;'  >薩克斯風經典名曲</option><option value='2_01'  style='background-color: #DDFFDD;'  >流行豆芽譜</option><option value='2_02'  style='background-color: #DDFFDD;'  >流行豆芽譜精選</option><option value='2_03'  style='background-color: #DDFFDD;'  >流行伴奏譜</option><option value='2_04'  style='background-color: #DDFFDD;'  >流行伴奏譜精選</option><option value='2_05'  style='background-color: #DDFFDD;'  >兒童卡通爵士教本</option><option value='2_06'  style='background-color: #DDFFDD;'  >兒童古典鋼琴小品</option><option value='2_07'  style='background-color: #DDFFDD;'  >聖誕鋼琴精選</option><option value='2_08'  style='background-color: #DDFFDD;'  >民歌鋼琴精選</option><option value='2_09'  style='background-color: #DDFFDD;'  >海上鋼琴師</option><option value='2_10'  style='background-color: #DDFFDD;'  >鋼琴師和她的情人</option><option value='2_11'  style='background-color: #DDFFDD;'  >小英的故事</option><option value='2_12'  style='background-color: #DDFFDD;'  >Old Jazz 鋼琴精選</option><option value='2_13'  style='background-color: #DDFFDD;'  >永恆的旋律</option><option value='2_14'  style='background-color: #DDFFDD;'  >鳳凰花開的季節</option><option value='2_15'  style='background-color: #DDFFDD;'  >超精選豆芽譜</option><option value='2_16'  style='background-color: #DDFFDD;'  >小豆芽流行鋼琴精選</option><option value='2_17'  style='background-color: #DDFFDD;'  >凱文柯恩琴譜精選</option><option value='2_18'  style='background-color: #DDFFDD;'  >流行直笛譜</option><option value='2_19'  style='background-color: #DDFFDD;'  >轉角遇到愛</option><option value='2_20'  style='background-color: #DDFFDD;'  >陶笛演奏套譜</option><option value='2_21'  style='background-color: #DDFFDD;'  >流行小提琴譜</option><option value='2_22'  style='background-color: #DDFFDD;'  >流行長笛譜</option><option value='2_23'  style='background-color: #DDFFDD;'  >流行豎笛譜</option><option value='2_24'  style='background-color: #DDFFDD;'  >與蕭邦共舞</option><option value='2_25'  style='background-color: #DDFFDD;'  >民歌直笛譜</option><option value='2_26'  style='background-color: #DDFFDD;'  >流行小提琴年度精選</option><option value='2_27'  style='background-color: #DDFFDD;'  >流行長笛教本</option><option value='2_28'  style='background-color: #DDFFDD;'  >流行陶笛樂譜精選集</option><option value='2_29'  style='background-color: #DDFFDD;'  >最愛鄧麗君鋼琴彈唱(五線譜)</option><option value='2_30'  style='background-color: #DDFFDD;'  >VK客.音樂/樂譜集</option><option value='3_01'  style='background-color: #DDFFDD;'  >弦彈超人</option><option value='3_02'  style='background-color: #DDFFDD;'  >經典吉他名曲</option><option value='3_03'  style='background-color: #DDFFDD;'  >流行吉他演奏譜</option><option value='3_06'  style='background-color: #DDFFDD;'  >「愛烏．吉烏」烏克麗麗教材</option><option value='3_07'  style='background-color: #DDFFDD;'  >流行吉他彈唱教材</option><option value='3_08'  style='background-color: #DDFFDD;'  >劉雲平.轉身Turnaround.吉他演奏樂譜</option><option value='3_09'  style='background-color: #DDFFDD;'  >烏克麗麗大百科</option><option value='3_10'  style='background-color: #DDFFDD;'  >烏克麗麗練習週記</option><option value='3_11'  style='background-color: #DDFFDD;'  >未使用</option><option value='3_12'  style='background-color: #DDFFDD;'  >流行吉他練習週記</option><option value='3_13'  style='background-color: #DDFFDD;'  >流行吉他重奏指南</option><option value='4_01'  style='background-color: #DDFFDD;'  >EZ Play</option><option value='4_02'  style='background-color: #DDFFDD;'  >歌唱聖經</option><option value='4_03'  style='background-color: #DDFFDD;'  >峰采一生 創作全紀錄</option><option value='4_04'  style='background-color: #DDFFDD;'  >我們的樂園</option><option value='4_05'  style='background-color: #DDFFDD;'  >MIDI編曲錄音實務</option><option value='4_06'  style='background-color: #DDFFDD;'  >流行二胡教材樂譜精選集</option><option value='4_07'  style='background-color: #DDFFDD;'  >鋼琴彈唱的祕密</option><option value='4_08'  style='background-color: #DDFFDD;'  >陶笛101教本</option><option value='4_09'  style='background-color: #DDFFDD;'  >鍵盤樂器的風格與魅力</option><option value='4_10'  style='background-color: #DDFFDD;'  >一聲佛號一聲心</option><option value='4_11'  style='background-color: #DDFFDD;'  >流行爵士鋼琴教材</option><option value='4_12'  style='background-color: #DDFFDD;'  >彩虹鋼琴技巧</option><option value='4_13'  style='background-color: #DDFFDD;'  >琴法小提琴教本</option><option value='4_14'  style='background-color: #DDFFDD;'  >快樂學爵士</option><option value='4_16'  style='background-color: #DDFFDD;'  >Band態(團譜)</option><option value='4_17'  style='background-color: #DDFFDD;'  >CUBASE學程大百科</option><option value='4_18'  style='background-color: #DDFFDD;'  >兩琴相樂(吉他譜)</option><option value='4_19'  style='background-color: #DDFFDD;'  >拇指琴(卡林巴)</option><option value='4_20'  style='background-color: #DDFFDD;'  >小鼓手</option><option value='4_21'  style='background-color: #DDFFDD;'  >流行音樂必備的鋼琴技能</option><option value='4_22'  style='background-color: #DDFFDD;'  >鼓王黃瑞豐打法秘訣</option><option value='5_01'  style='background-color: #DDFFDD;'  >永難忘懷情歌集(旋律版)(簡譜)</option><option value='5_02'  style='background-color: #DDFFDD;'  >永難忘懷情歌集(歌詞版)(簡譜)</option><option value='5_03'  style='background-color: #DDFFDD;'  >93流行金曲(簡譜)</option><option value='8_01'  style='background-color: #DDFFDD;'  >阿焜老師鼓mp3</option><option value='8_02'  style='background-color: #DDFFDD;'  >薩克斯風變奏版</option><option value='8_03'  style='background-color: #DDFFDD;'  >YAMAHA PSR精編節奏檔</option><option value='8_04'  style='background-color: #DDFFDD;'  >台語愛睏謠</option>
+										</Select>
+									</td>
+									<td height="40">
+										<img src="images/search.gif" align="absmiddle"> 
+										<font class="style3">冊別：</font> <input name="SerialNo" type="text"  size="5" value="" class="txt"> 
+									</td>
+
+									<td width="25%">
+										<!--
+										<input type="button" value="※購買單曲.教學影片※"  onclick="window.open('https://youtu.be/eXLF6TCc4ns')"  style="font-weight:bold; font-size:20px; width:80%; height: 40px; border-radius:10px; cursor:pointer; color:blue" >
+										-->
+									</td>
+									
+
+									<td>
+										<input type="submit" name="Submit" value="查詢" style="font-weight:bold; font-size:20px; width: 100%; height: 40px;border-radius:10px;cursor:pointer; ; color:red"> 
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr> 
+						<td> 
+							<!--	判斷查詢結果[若有資料]	-->
+														<!--	判斷查詢結果[若有資料]	-->
+							
+							<TABLE width="100%" border="0"  align="right" cellpadding="0" cellspacing="0">
+								
+								
+								<TR> 
+									<TD> 
+										<!--	[頁碼狀態與翻頁控制]	-->
+										<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="FFFFAA">
+											<TR> 
+											<!--	[頁碼狀態]	 -->
+												<TD  width="20%"> 
+													目前顯示第 <font color="red">701 </font>到 <font color="red">750</font> 首
+													<br>
+													您所查詢共計 <font color="red">16967</font> 首 
+												</TD>
+
+
+											
+												<TD width="15%">
+													<table>
+														<tr>
+															<td>
+																<img src="images/pay2.gif" width="40" height="36" border=0 title="購物清單檢查">
+															</td>
+															<td align="center">
+																<input type="button" value="我要結帳" onclick="shoppingCarEZOpen();" style="font-weight:bold; font-size : 20px; width: 100%; height: 40px;border-radius:10px;cursor:pointer;" >
+															</td>
+														</tr>
+													</table>
+												</TD>
+
+
+												<!--	[翻頁控制]	-->
+												<TD width="35%"> 
+													<TABLE width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+														<TR> 
+															
+															<!--	[第一頁]			-->
+															<TD width="25%" align="center"> 
+																
+																	<!--	若處於第一頁, 則不顯示		-->
+																		<div onclick="pageChange('/searchSong/index.asp?offset=0')" style="cursor:pointer;"><IMG SRC="images/First.gif" BORDER="0" ALT="第一頁"></div>
+																
+															</TD>
+															
+															<!--	[上一頁]			-->
+															<TD width="25%" align="center"> 
+																
+																	<!--	若處於第一頁, 則不顯示			-->
+																	<div onclick="pageChange('/searchSong/index.asp?offset=650')" style="cursor:pointer;"><IMG SRC="images/Previous.gif" BORDER="0" ALT="上一頁"></div>
+																
+															</TD>
+														
+															<!--	[下一頁]			-->
+															<TD width="25%" align="center"> 
+																
+																	<!--	若處於最末頁, 則不顯示			-->
+																	<div onclick="pageChange('/searchSong/index.asp?offset=750')" style="cursor:pointer;"><IMG SRC="images/Next.gif" BORDER="0" ALT="下一頁"></div>	
+																
+															</TD>
+														
+															<!--	[最末頁]			-->
+															<TD width="25%" align="center"> 
+																															
+																	<!--	若處於最末頁, 則不顯示			-->
+																	<div onclick="pageChange('/searchSong/index.asp?offset=-1')" style="cursor:pointer;"><IMG SRC="images/Last.gif" BORDER="0" ALT="最末頁"></div>		
+																
+															</TD>
+														</TR>
+													</TABLE>
+												</TD>
+												<!--	[翻頁控制]結束	-->
+
+											
+												<TD width="15%" align="center">
+													<table>
+														<tr>
+															<td>
+																<input type="button" value="歷史訂單查詢" onclick="location.href='http://www.musicbook.com.tw/searchSong/searchOrder.asp?Lang=TW'" style="font-weight:bold; font-size : 20px; width: 100%; height: 40px;border-radius:10px;cursor:pointer;" >
+															</td>
+														</tr>
+													</table>
+												</TD>
+											</TR>
+
+											<TR>
+												<TD colspan="4">
+													<table>
+														<tr>
+															<td>
+												<b><font color="#009900">熱門書本範例：</font></b>【<A HREF=".\images\1_01_Sample.jpg" target="_blank">最新排行(簡譜)</A>、<A HREF=".\images\1_01_Sample.jpg" target="_blank">永難忘懷情歌集(簡譜)</A>】、【<A HREF=".\images\2_01_Sample.jpg" target="_blank">流行豆芽譜(五線譜)</A>】、【<A HREF=".\images\2_03_Sample.jpg" target="_blank">流行伴奏譜(五線譜)</A>】
+															</td>
+														</tr>
+														<tr>
+															<td>										
+												<b><font color="#009900">最新排行：簡譜符號教學</font></b>【<A HREF=".\images\1_01_PS1.jpg" target="_blank">第1頁</A>】、【<A HREF=".\images\1_01_PS2.jpg" target="_blank">第2頁</A>】、【<A HREF=".\images\1_01_PS3.jpg" target="_blank">第3頁</A>】
+															</td>
+														</tr>
+													</table>
+												</TD>
+											</TR>
+										</TABLE>
+										<!--	[頁碼狀態與翻頁控制]結束	-->
+									</TD>
+								</TR>
+
+
+								<TR> 
+									<TD> 
+										<!--	查詢結果區:標題	-->
+										<TABLE width="100%" border="1" cellpadding="0" cellspacing="0" align="center">
+											<tr valign="middle" bgcolor="#CCCCCC" > 
+												<td height="30" ><div align="left" class="style3">書名</div></td>
+												<td height="30" ><div align="right" class="style3">曲名</div></td>
+												<td height="30" ><div align="right" class="style3">演唱歌手</div></td>
+												<td height="30" ><div align="center" class="style3">冊別</div></td>
+												<td height="30" ><div align="center" class="style3">頁別</div></td>
+												<td height="30" ><div align="left" class="style3">單曲購物車</div></td>
+												<td height="30" ><div align="left" class="style3">單曲頁數</div></td>
+												<td height="30" ><div align="left" class="style3">備註</div></td>
+												<td height="30" ><div align="left" class="style3">整本購物車</div></td>
+											</tr>
+
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#21193;&#28858;&#20854;&#38627;</td>
+												<td height="25" align="right" class="style3">王冕</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">102</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_102_2_&#21193;&#28858;&#20854;&#38627;_1_50','&#21193;&#28858;&#20854;&#38627;','王冕') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#21478;&#19968;&#20491;&#31461;&#35441;</td>
+												<td height="25" align="right" class="style3">鄧紫棋/G.E.M</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">104</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_104_2_&#21478;&#19968;&#20491;&#31461;&#35441;_1_50','&#21478;&#19968;&#20491;&#31461;&#35441;','鄧紫棋/G.E.M') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#21482;&#26159;&#22826;&#24859;&#20320;</td>
+												<td height="25" align="right" class="style3">張敬軒</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">106</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_106_2_&#21482;&#26159;&#22826;&#24859;&#20320;_1_50','&#21482;&#26159;&#22826;&#24859;&#20320;','張敬軒') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#22914;&#26524;&#26377;&#20358;&#29983;</td>
+												<td height="25" align="right" class="style3">譚維維</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">108</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_108_2_&#22914;&#26524;&#26377;&#20358;&#29983;_1_50','&#22914;&#26524;&#26377;&#20358;&#29983;','譚維維') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#20320;&#19981;&#26159;&#25105;&#30340;</td>
+												<td height="25" align="right" class="style3">陳勢安</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">110</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_110_2_&#20320;&#19981;&#26159;&#25105;&#30340;_1_50','&#20320;&#19981;&#26159;&#25105;&#30340;','陳勢安') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25105;&#30340;&#22909;&#20804;&#24351;</td>
+												<td height="25" align="right" class="style3">高進/小瀋陽</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">112</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_112_2_&#25105;&#30340;&#22909;&#20804;&#24351;_1_50','&#25105;&#30340;&#22909;&#20804;&#24351;','高進/小瀋陽') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#27794;&#37027;&#40636;&#33030;&#24369;</td>
+												<td height="25" align="right" class="style3">李玉璽</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">114</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_114_2_&#27794;&#37027;&#40636;&#33030;&#24369;_1_50','&#27794;&#37027;&#40636;&#33030;&#24369;','李玉璽') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《名不虛傳》片尾曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#26368;&#32654;&#30340;&#26399;&#24453;</td>
+												<td height="25" align="right" class="style3">周筆暢</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">116</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_116_2_&#26368;&#32654;&#30340;&#26399;&#24453;_1_50','&#26368;&#32654;&#30340;&#26399;&#24453;','周筆暢') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《繭鎮奇緣》片頭曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#28331;&#26580;&#30340;&#22855;&#36447;</td>
+												<td height="25" align="right" class="style3">范瑋琪</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">118</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_118_2_&#28331;&#26580;&#30340;&#22855;&#36447;_1_50','&#28331;&#26580;&#30340;&#22855;&#36447;','范瑋琪') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《我的男孩》片頭曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#30070;&#27599;&#38982;&#26143;&#26143;</td>
+												<td height="25" align="right" class="style3">阿信/黃渤</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">120</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_120_2_&#30070;&#27599;&#38982;&#26143;&#26143;_1_50','&#30070;&#27599;&#38982;&#26143;&#26143;','阿信/黃渤') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《一齣好戲》主題曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25105;&#30693;&#36947;&#35201;&#24494;&#31505;</td>
+												<td height="25" align="right" class="style3">周興哲</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">122</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_122_2_&#25105;&#30693;&#36947;&#35201;&#24494;&#31505;_1_50','&#25105;&#30693;&#36947;&#35201;&#24494;&#31505;','周興哲') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#38634;&#33853;&#19979;&#30340;&#32882;&#38899;</td>
+												<td height="25" align="right" class="style3">陸虎</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">124</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_124_2_&#38634;&#33853;&#19979;&#30340;&#32882;&#38899;_1_50','&#38634;&#33853;&#19979;&#30340;&#32882;&#38899;','陸虎') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《延禧攻略》片尾曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#29983;&#21629;&#26377;&#19968;&#31278;&#32085;&#23565;</td>
+												<td height="25" align="right" class="style3">五月天</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">126</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_126_2_&#29983;&#21629;&#26377;&#19968;&#31278;&#32085;&#23565;_1_50','&#29983;&#21629;&#26377;&#19968;&#31278;&#32085;&#23565;','五月天') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#22825;&#22312;&#19979;&#38632;&#25105;&#22312;&#24819;&#20320;</td>
+												<td height="25" align="right" class="style3">任妙音</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">128</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_128_2_&#22825;&#22312;&#19979;&#38632;&#25105;&#22312;&#24819;&#20320;_1_50','&#22825;&#22312;&#19979;&#38632;&#25105;&#22312;&#24819;&#20320;','任妙音') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25105;&#30340;&#24555;&#27138;&#23601;&#26159;&#24819;&#20320;</td>
+												<td height="25" align="right" class="style3">陳雅森</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">130</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_130_2_&#25105;&#30340;&#24555;&#27138;&#23601;&#26159;&#24819;&#20320;_1_50','&#25105;&#30340;&#24555;&#27138;&#23601;&#26159;&#24819;&#20320;','陳雅森') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25105;&#30340;&#20107;&#19981;&#38364;&#20320;&#30340;&#20107;</td>
+												<td height="25" align="right" class="style3">賴慈泓/孫盛希</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">132</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_132_2_&#25105;&#30340;&#20107;&#19981;&#38364;&#20320;&#30340;&#20107;_1_50','&#25105;&#30340;&#20107;&#19981;&#38364;&#20320;&#30340;&#20107;','賴慈泓/孫盛希') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《那年花開月正圓》片頭曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25105;&#24859;&#20320;&#21213;&#36942;&#20320;&#24859;&#25105;</td>
+												<td height="25" align="right" class="style3">冷漠/楊小曼</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">134</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_134_2_&#25105;&#24859;&#20320;&#21213;&#36942;&#20320;&#24859;&#25105;_1_50','&#25105;&#24859;&#20320;&#21213;&#36942;&#20320;&#24859;&#25105;','冷漠/楊小曼') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#37679;&#36942;&#20102;&#32227;&#20998;&#37679;&#36942;&#20320;</td>
+												<td height="25" align="right" class="style3">陳瑞</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">136</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_136_2_&#37679;&#36942;&#20102;&#32227;&#20998;&#37679;&#36942;&#20320;_1_50','&#37679;&#36942;&#20102;&#32227;&#20998;&#37679;&#36942;&#20320;','陳瑞') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#24859;&#36942;&#20320;&#26377;&#22810;&#20037;&#23601;&#26377;&#22810;&#30171;</td>
+												<td height="25" align="right" class="style3">蕭秉治</td>
+												<td height="25" align="center" class="style3">146</td>
+												<td height="25" align="center" class="style3">138</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_146_138_2_&#24859;&#36942;&#20320;&#26377;&#22810;&#20037;&#23601;&#26377;&#22810;&#30171;_1_50','&#24859;&#36942;&#20320;&#26377;&#22810;&#20037;&#23601;&#26377;&#22810;&#30171;','蕭秉治') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#24515;&#20013;&#23610;</td>
+												<td height="25" align="right" class="style3">陳百潭/張艾莉</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">012</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_012_2_&#24515;&#20013;&#23610;_1_50','&#24515;&#20013;&#23610;','陳百潭/張艾莉') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#30707;&#38957;&#24515;</td>
+												<td height="25" align="right" class="style3">阿吉仔</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">014</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_014_2_&#30707;&#38957;&#24515;_1_50','&#30707;&#38957;&#24515;','阿吉仔') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >中視《冰冰秀》片尾曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25293;&#22103;&#20180;</td>
+												<td height="25" align="right" class="style3">楊欣樺</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">016</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_016_2_&#25293;&#22103;&#20180;_1_50','&#25293;&#22103;&#20180;','楊欣樺') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《 金家好媳婦》片尾曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#26126;&#20180;&#36617;</td>
+												<td height="25" align="right" class="style3">盧廣仲</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">018</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_018_2_&#26126;&#20180;&#36617;_1_50','&#26126;&#20180;&#36617;','盧廣仲') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電影《花甲大人轉男孩》推廣曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#38738;&#26149;&#22818;</td>
+												<td height="25" align="right" class="style3">甲子慧</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">020</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_020_2_&#38738;&#26149;&#22818;_1_50','&#38738;&#26149;&#22818;','甲子慧') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#29138;&#28414;&#28414;</td>
+												<td height="25" align="right" class="style3">蔡佳麟/曹雅雯</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">022</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_022_2_&#29138;&#28414;&#28414;_1_50','&#29138;&#28414;&#28414;','蔡佳麟/曹雅雯') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#24184;&#31119;&#28415;&#28415;</td>
+												<td height="25" align="right" class="style3">一綾</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">024</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_024_2_&#24184;&#31119;&#28415;&#28415;_1_50','&#24184;&#31119;&#28415;&#28415;','一綾') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#20663;&#24515;&#21543;&#21488;</td>
+												<td height="25" align="right" class="style3">袁小迪/陳凱欣</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">026</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_026_2_&#20663;&#24515;&#21543;&#21488;_1_50','&#20663;&#24515;&#21543;&#21488;','袁小迪/陳凱欣') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《戲說台灣》片頭曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25105;&#27442;&#36319;&#20320;&#34892;</td>
+												<td height="25" align="right" class="style3">一綾/張岳鵬</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">028</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_028_2_&#25105;&#27442;&#36319;&#20320;&#34892;_1_50','&#25105;&#27442;&#36319;&#20320;&#34892;','一綾/張岳鵬') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#30140;&#20320;&#26371;&#20837;&#24515;</td>
+												<td height="25" align="right" class="style3">許富凱</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">030</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_030_2_&#30140;&#20320;&#26371;&#20837;&#24515;_1_50','&#30140;&#20320;&#26371;&#20837;&#24515;','許富凱') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《幸福來了》片頭曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#24859;&#25105;&#33836;&#33836;&#24180;</td>
+												<td height="25" align="right" class="style3">陳怡婷</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">032</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_032_2_&#24859;&#25105;&#33836;&#33836;&#24180;_1_50','&#24859;&#25105;&#33836;&#33836;&#24180;','陳怡婷') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#27741;&#26159;&#25105;&#30340;&#24515;&#32925;</td>
+												<td height="25" align="right" class="style3">伍佰</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">034</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_034_2_&#27741;&#26159;&#25105;&#30340;&#24515;&#32925;_1_50','&#27741;&#26159;&#25105;&#30340;&#24515;&#32925;','伍佰') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#24859;&#33879;&#25171;&#27515;&#28961;&#36864;</td>
+												<td height="25" align="right" class="style3">阿吉仔/吳儀君</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">036</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_036_2_&#24859;&#33879;&#25171;&#27515;&#28961;&#36864;_1_50','&#24859;&#33879;&#25171;&#27515;&#28961;&#36864;','阿吉仔/吳儀君') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#22809;&#24565;</td>
+												<td height="25" align="right" class="style3">郁可唯</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">038</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_038_2_&#22809;&#24565;_1_50','&#22809;&#24565;','郁可唯') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《大唐榮耀》插曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#25105;&#20497;</td>
+												<td height="25" align="right" class="style3">陳奕迅</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">040</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_040_2_&#25105;&#20497;_1_50','&#25105;&#20497;','陳奕迅') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電影《後來的我們》主題曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#36208;&#24515;</td>
+												<td height="25" align="right" class="style3">賀敬軒</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">042</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_042_2_&#36208;&#24515;_1_50','&#36208;&#24515;','賀敬軒') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#26262;&#20154;</td>
+												<td height="25" align="right" class="style3">張磊</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">044</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_044_2_&#26262;&#20154;_1_50','&#26262;&#20154;','張磊') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >電視劇《放棄我，抓緊我》插曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#31291;&#33609;</td>
+												<td height="25" align="right" class="style3">鄭茵聲</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">046</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_046_2_&#31291;&#33609;_1_50','&#31291;&#33609;','鄭茵聲') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#26039;&#35338;</td>
+												<td height="25" align="right" class="style3">邱鋒澤/偉晉</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">048</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_048_2_&#26039;&#35338;_1_50','&#26039;&#35338;','邱鋒澤/偉晉') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#20840;&#26159;&#24859;</td>
+												<td height="25" align="right" class="style3">蕭敬騰</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">050</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_050_2_&#20840;&#26159;&#24859;_1_50','&#20840;&#26159;&#24859;','蕭敬騰') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#26089;&#25033;&#35442;</td>
+												<td height="25" align="right" class="style3">李毓芬</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">052</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_052_2_&#26089;&#25033;&#35442;_1_50','&#26089;&#25033;&#35442;','李毓芬') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#30007;&#20154;&#27468;</td>
+												<td height="25" align="right" class="style3">高進/小沈陽</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">054</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_054_2_&#30007;&#20154;&#27468;_1_50','&#30007;&#20154;&#27468;','高進/小沈陽') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#21254;&#21254;&#37027;&#24180;</td>
+												<td height="25" align="right" class="style3">王菲</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">056</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_056_2_&#21254;&#21254;&#37027;&#24180;_1_50','&#21254;&#21254;&#37027;&#24180;','王菲') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#34384;&#24515;</td>
+												<td height="25" align="right" class="style3">亦帆</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">058</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_058_3_&#34384;&#24515;_1_50','&#34384;&#24515;','亦帆') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">3</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#24179;&#20961;&#20043;&#36335;</td>
+												<td height="25" align="right" class="style3">朴樹</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">061</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_061_3_&#24179;&#20961;&#20043;&#36335;_1_50','&#24179;&#20961;&#20043;&#36335;','朴樹') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">3</td>
+												<td height="25" align="left" class="style3" >電影《後會無期》主題曲*3頁</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#26377;&#22826;&#22810;&#20154;</td>
+												<td height="25" align="right" class="style3">高進</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">064</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_064_3_&#26377;&#22826;&#22810;&#20154;_1_50','&#26377;&#22826;&#22810;&#20154;','高進') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">3</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#20320;&#30340;&#21517;&#23383;</td>
+												<td height="25" align="right" class="style3">陳零九</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">067</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_067_3_&#20320;&#30340;&#21517;&#23383;_1_50','&#20320;&#30340;&#21517;&#23383;','陳零九') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">3</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#26377;&#21435;&#28961;&#22238;</td>
+												<td height="25" align="right" class="style3">陳零九/小男孩樂團</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">070</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_070_2_&#26377;&#21435;&#28961;&#22238;_1_50','&#26377;&#21435;&#28961;&#22238;','陳零九/小男孩樂團') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >三立華劇「已讀不回的戀人」插曲</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#33258;&#28982;&#20939;&#35613;</td>
+												<td height="25" align="right" class="style3">孫盛希</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">072</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_072_2_&#33258;&#28982;&#20939;&#35613;_1_50','&#33258;&#28982;&#20939;&#35613;','孫盛希') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#E7F8ED"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#21040;&#27492;&#28858;&#27490;</td>
+												<td height="25" align="right" class="style3">徐佳瑩</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">074</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_074_2_&#21040;&#27492;&#28858;&#27490;_1_50','&#21040;&#27492;&#28858;&#27490;','徐佳瑩') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">2</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+											<tr bgcolor="#FFF0FD"> 
+												
+												
+												<!--	查詢結果區:內容	-->
+												<td height="25" align="left" class="style3">最新排行(簡譜)：最新單曲</td>
+												<td height="25" align="right" class="style3">&#21644;&#24179;&#20998;&#25163;</td>
+												<td height="25" align="right" class="style3">梁文音/蕭煌奇</td>
+												<td height="25" align="center" class="style3">145</td>
+												<td height="25" align="center" class="style3">076</td>
+												<td height="25" align="left" class="style3"><input type='button' value='買單曲'  onclick=addOrder('單曲:最新排行(簡譜)：最新單曲_1_01_145_076_3_&#21644;&#24179;&#20998;&#25163;_1_50','&#21644;&#24179;&#20998;&#25163;','梁文音/蕭煌奇') style='border-radius:10px;cursor:pointer;color:blue'></td>
+												<td height="25" align="left" class="style3">3</td>
+												<td height="25" align="left" class="style3" >&nbsp;</td>
+												<td height="25" align="left" class="style3"><A HREF="http://shop.musicbook.com.tw/contents_1_01_141-160.asp ">買整本</a></td>
+											</tr>
+											
+										</table>
+									</TD>
+								</TR>
+
+								
+								<TR> 
+									<TD> 
+										<!--	[頁碼狀態與翻頁控制]	-->
+										<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="FFFFAA">
+											<TR> 
+											<!--	[頁碼狀態]	 -->
+												<TD  width="20%"> 
+													目前顯示第 <font color="red">701 </font>到 <font color="red">750</font> 首
+													<br>
+													您所查詢共計 <font color="red">16967</font> 首 
+												</TD>
+
+
+											
+												<TD width="15%">
+													<table>
+														<tr>
+															<td>
+																<img src="images/pay2.gif" width="40" height="36" border=0 title="購物清單檢查">
+															</td>
+															<td align="center">
+																<input type="button" value="我要結帳" onclick="shoppingCarEZOpen();" style="font-weight:bold; font-size : 20px; width: 100%; height: 40px;border-radius:10px;cursor:pointer;" >
+															</td>
+														</tr>
+													</table>
+												</TD>
+
+
+												<!--	[翻頁控制]	-->
+												<TD width="35%"> 
+													<TABLE width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+														<TR> 
+															
+															<!--	[第一頁]			-->
+															<TD width="25%" align="center"> 
+																
+																	<!--	若處於第一頁, 則不顯示		-->
+																		<div onclick="pageChange('/searchSong/index.asp?offset=0')" style="cursor:pointer;"><IMG SRC="images/First.gif" BORDER="0" ALT="第一頁"></div>
+																
+															</TD>
+															
+															<!--	[上一頁]			-->
+															<TD width="25%" align="center"> 
+																
+																	<!--	若處於第一頁, 則不顯示			-->
+																	<div onclick="pageChange('/searchSong/index.asp?offset=650')" style="cursor:pointer;"><IMG SRC="images/Previous.gif" BORDER="0" ALT="上一頁"></div>
+																
+															</TD>
+														
+															<!--	[下一頁]			-->
+															<TD width="25%" align="center"> 
+																
+																	<!--	若處於最末頁, 則不顯示			-->
+																	<div onclick="pageChange('/searchSong/index.asp?offset=750')" style="cursor:pointer;"><IMG SRC="images/Next.gif" BORDER="0" ALT="下一頁"></div>	
+																
+															</TD>
+														
+															<!--	[最末頁]			-->
+															<TD width="25%" align="center"> 
+																															
+																	<!--	若處於最末頁, 則不顯示			-->
+																	<div onclick="pageChange('/searchSong/index.asp?offset=-1')" style="cursor:pointer;"><IMG SRC="images/Last.gif" BORDER="0" ALT="最末頁"></div>		
+																
+															</TD>
+														</TR>
+													</TABLE>
+												</TD>
+												<!--	[翻頁控制]結束	-->
+
+											
+												<TD width="15%" align="center">
+													<table>
+														<tr>
+															<td>
+																<input type="button" value="歷史訂單查詢" onclick="location.href='http://www.musicbook.com.tw/searchSong/searchOrder.asp?Lang=TW'" style="font-weight:bold; font-size : 20px; width: 100%; height: 40px;border-radius:10px;cursor:pointer;" >
+															</td>
+														</tr>
+													</table>
+												</TD>
+											</TR>
+
+											<TR>
+												<TD colspan="4">
+													<table>
+														<tr>
+															<td>
+												<b><font color="#009900">熱門書本範例：</font></b>【<A HREF=".\images\1_01_Sample.jpg" target="_blank">最新排行(簡譜)</A>、<A HREF=".\images\1_01_Sample.jpg" target="_blank">永難忘懷情歌集(簡譜)</A>】、【<A HREF=".\images\2_01_Sample.jpg" target="_blank">流行豆芽譜(五線譜)</A>】、【<A HREF=".\images\2_03_Sample.jpg" target="_blank">流行伴奏譜(五線譜)</A>】
+															</td>
+														</tr>
+														<tr>
+															<td>										
+												<b><font color="#009900">最新排行：簡譜符號教學</font></b>【<A HREF=".\images\1_01_PS1.jpg" target="_blank">第1頁</A>】、【<A HREF=".\images\1_01_PS2.jpg" target="_blank">第2頁</A>】、【<A HREF=".\images\1_01_PS3.jpg" target="_blank">第3頁</A>】
+															</td>
+														</tr>
+													</table>
+												</TD>
+											</TR>
+										</TABLE>
+										<!--	[頁碼狀態與翻頁控制]結束	-->
+									</TD>
+								</TR>
+
+
+							</TABLE>
+							
+						</td>
+					</tr>
+				</table>
+				
+				<!--回首頁資訊-->
+				<TABLE width="100%">
+					<TR> 
+						<TD  width="20%"> 
+							<div class="style3" style="color:#808080">
+							<a href="http://www.musicbook.com.tw" title="回首頁(觀看更多資訊)" target="_parent">回首頁(卓著音樂資訊網)</a>
+							<BR>
+							</div>
+						</TD>
+					</TR>
+				</TABLE>
+				<!--回首頁資訊-->
+				<!--	右留白	-->
+			</TD>
+			<TD>&nbsp;</TD>
+		</TR>
+	</TABLE>
+
+
+<!--官方基本資料-->
+<TABLE width="100%">
+	<TR>
+		<TD width="35%">
+			&nbsp;
+		<TD>
+		<TD width="30%" align="center" >
+		<div class="style3" style="color:#808080">
+		E-Mail: <A href="mailto:cho@musicbook.com.tw" title=聯絡我們>cho@musicbook.com.tw</a><BR>
+		台灣倉庫地址：813 高雄市左營區自立新村222-3號 (買書請至此處)<BR>
+		台灣公司地址：802 高雄市苓雅區英義街125-1號 (僅為辦公處.無藏書)<BR>
+		台灣客服專線：(07)585-5288<BR>
+	
+		卓著文化事業有限公司
+		</div>
+		</TD>
+		<TD width="15%" align="center">
+			<font color="green">卓著客服Line ID：<br> @lim5583i<br> </font>
+			<IMG SRC="/image/LineQRCode.jpg" WIDTH="100" HEIGHT="100" BORDER="0" ALT="">
+		<TD>
+		<TD width="15%" align="center">
+			<font color="blue">卓著客服微信 ID：<br> @Cho9cho<br> </font>
+			<IMG SRC="/image/WechatQRCode.jpg" WIDTH="100" HEIGHT="100" BORDER="0" ALT="">
+		<TD>
+		<TD width="20%">
+			&nbsp;
+		<TD>
+	</TR>
+</TABLE>
+<!--官方基本資料-->
+
+
+</div>
+
+
+<!--	紀錄購物車的隱藏欄位	-->
+<input type="hidden" name="_OrderS" id="OrderS" value=""></input>
+
+<input type="hidden" name="_VIPCode" id="VIPCode" value=""></input>
+<input type="hidden" name="_Cell" id="Cell" value=""></input>
+<input type="hidden" name="_searchVIPCode" id="searchVIPCode" value=""></input>
+<input type="hidden" name="_VIPCodeShow" id="VIPCodeShow" value=""></input>
+<input type="hidden" name="_searchLast" id="searchLast" value=""></input>
+
+<input type="hidden" name="_Cus_discount" id="Cus_discount" value=""></input>
+<input type="hidden" name="_VIPName" id="VIPName" value=""></input>
+
+<input type="hidden" name="_UserName" id="UserName" value=""></input>
+<input type="hidden" name="_UserType" id="UserType" value=""></input>
+<input type="hidden" name="_E_Mail" id="E_Mail" value=""></input>
+<input type="hidden" name="_Address" id="Address" value=""></input>
+<input type="hidden" name="_Zip" id="Zip" value=""></input>
+<input type="hidden" name="_Bank" id="Bank" value=""></input>
+<input type="hidden" name="_Memo" id="Memo" value=""></input>
+
+</form>
+
+
+</body>
+
+
+</html>
