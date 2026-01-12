@@ -175,6 +175,28 @@ select:focus {
     pointer-events: none;
 }
 
+.yt-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+    height: 42px;
+    /* Matches input height roughly */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.yt-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-color);
+}
+
 /* Main Content */
 .container {
     max-width: 1200px;
@@ -214,7 +236,8 @@ thead {
     background: rgba(0, 0, 0, 0.3);
 }
 
-th, td {
+th,
+td {
     padding: 16px 20px;
     text-align: left;
 }
@@ -278,7 +301,9 @@ tbody tr:hover {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Mobile Responsive */
@@ -288,16 +313,23 @@ tbody tr:hover {
         gap: 15px;
         padding: 15px;
     }
-    
+
     .controls {
         flex-direction: column;
         width: 100%;
     }
-    
-    .search-box, .filter-box, .select-wrapper {
+
+    .search-box,
+    .filter-box,
+    .select-wrapper,
+    .yt-link {
         width: 100%;
     }
-    
+
+    .yt-link {
+        justify-content: center;
+    }
+
     :root {
         --header-height: 140px;
     }
