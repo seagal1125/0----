@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新排行101</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .save-button {
+            display: inline-block;
+            background-color: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .save-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .song-list {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .song-item {
+            border-bottom: 1px solid #eee;
+        }
+        .song-item:last-child {
+            border-bottom: none;
+        }
+        .song-link {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 10px;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+        .song-link:hover {
+            background-color: #f5f5f7;
+        }
+        .song-title {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .song-artist {
+            color: #86868b;
+        }
+    </style>
+</head>
+<body>
+    <h1>最新排行101</h1>
+    
+    <div class="button-container">
+        <a href="https://www.youtube.com/watch_videos?video_ids=as5JmzdEXSg,MKWUxqk5LLk,Nb-6NS7_kNA,lrGYRKTs5cQ,_jDYa64GEFM,-Q3H95pd_Lw,y6p4wycqf5I,Shxik4JT_hE,UG459pAsokE,Q8XCxvpMYKQ,3x8eRx4Sk3A,ROKxPtX-vt8,6jhMxUicAj8,UtzEEbF33Qk,AYpZWq05E_E,ke_5HqtScs4,FMbeLJ42GDs,5N9_f6df1Nw,OEVoblQL9ps,CokN0Wr3S3g,3e6cQ4WP3dE,QRD6L92rAAA,yaDuOKA-NOg,PhTzPJtQ6hY,812omgU1tHs,WrSyUPWIT3w,Lzb33Ku8k_w,DduKGmRCqio,pxU0KPinGpM,kU-lgFin_rQ,iFqVovL06Fo,z6zZSVtsqrc,KTISbg9QQhg,8Uv8mtYoroc,LgvBXXLC5AI,3O8rmZ-Q25o,nPcByqGfxQo,CGfZNAOkpkk,vyq8izxLwBM,tIYhGYuLQ1w,4ik9v7BnSjg,kPAcTAce8I0,sslCGx5Pwkg,uB2XYiPo5O0,sL2iLKmVlPI,S2N5ho1-ArE,JdRkyr49iu4,8LgaobiCAxo,dm-zXNF65UY,_KCdNPAneAM" target="_blank" class="save-button">
+            ▶ 播放全部 / 儲存播放清單
+        </a>
+    </div>
+
+    <div class="song-list">
+        <h3>歌曲列表 (50 首)</h3>
+        
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=as5JmzdEXSg" target="_blank" class="song-link">
+                    <span class="song-title">酒歌</span>
+                    <span class="song-artist">黃乙玲</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=MKWUxqk5LLk" target="_blank" class="song-link">
+                    <span class="song-title">春花秋月</span>
+                    <span class="song-artist">黃乙玲/鄭君威/許富凱/吳俊宏</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=Nb-6NS7_kNA" target="_blank" class="song-link">
+                    <span class="song-title">看袂落去</span>
+                    <span class="song-artist">蕭閎仁</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=lrGYRKTs5cQ" target="_blank" class="song-link">
+                    <span class="song-title">酸風柳樹</span>
+                    <span class="song-artist">楊培安</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=_jDYa64GEFM" target="_blank" class="song-link">
+                    <span class="song-title">愛情甘講已經過</span>
+                    <span class="song-artist">黃乙玲</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=-Q3H95pd_Lw" target="_blank" class="song-link">
+                    <span class="song-title">Believe</span>
+                    <span class="song-artist">AI</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=y6p4wycqf5I" target="_blank" class="song-link">
+                    <span class="song-title">看不見的星星</span>
+                    <span class="song-artist">中島美嘉</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=Shxik4JT_hE" target="_blank" class="song-link">
+                    <span class="song-title">Love Song</span>
+                    <span class="song-artist">方大同</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=UG459pAsokE" target="_blank" class="song-link">
+                    <span class="song-title">收藏</span>
+                    <span class="song-artist">蕭敬騰</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=Q8XCxvpMYKQ" target="_blank" class="song-link">
+                    <span class="song-title">伯樂</span>
+                    <span class="song-artist">林宥嘉</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=3x8eRx4Sk3A" target="_blank" class="song-link">
+                    <span class="song-title">呢喃</span>
+                    <span class="song-artist">蘇打綠</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=ROKxPtX-vt8" target="_blank" class="song-link">
+                    <span class="song-title">知道</span>
+                    <span class="song-artist">郭靜</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=6jhMxUicAj8" target="_blank" class="song-link">
+                    <span class="song-title">病態</span>
+                    <span class="song-artist">林宥嘉</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=UtzEEbF33Qk" target="_blank" class="song-link">
+                    <span class="song-title">疼愛</span>
+                    <span class="song-artist">蕭敬騰</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=AYpZWq05E_E" target="_blank" class="song-link">
+                    <span class="song-title">眼色</span>
+                    <span class="song-artist">林宥嘉</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=ke_5HqtScs4" target="_blank" class="song-link">
+                    <span class="song-title">傳說</span>
+                    <span class="song-artist">林宥嘉/劉力揚</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=FMbeLJ42GDs" target="_blank" class="song-link">
+                    <span class="song-title">漂流</span>
+                    <span class="song-artist">品冠</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=5N9_f6df1Nw" target="_blank" class="song-link">
+                    <span class="song-title">衝動</span>
+                    <span class="song-artist">蕭亞軒</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=OEVoblQL9ps" target="_blank" class="song-link">
+                    <span class="song-title">擁抱</span>
+                    <span class="song-artist">蘇永康</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=CokN0Wr3S3g" target="_blank" class="song-link">
+                    <span class="song-title">戀單</span>
+                    <span class="song-artist">戴愛玲</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=3e6cQ4WP3dE" target="_blank" class="song-link">
+                    <span class="song-title">大玩笑</span>
+                    <span class="song-artist">郭靜</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=QRD6L92rAAA" target="_blank" class="song-link">
+                    <span class="song-title">流浪記</span>
+                    <span class="song-artist">巴奈</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=yaDuOKA-NOg" target="_blank" class="song-link">
+                    <span class="song-title">原諒我</span>
+                    <span class="song-artist">蕭敬騰</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=PhTzPJtQ6hY" target="_blank" class="song-link">
+                    <span class="song-title">海芋戀</span>
+                    <span class="song-artist">蕭敬騰</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=812omgU1tHs" target="_blank" class="song-link">
+                    <span class="song-title">愛愛愛</span>
+                    <span class="song-artist">方大同</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=WrSyUPWIT3w" target="_blank" class="song-link">
+                    <span class="song-title">難朋友</span>
+                    <span class="song-artist">陳小春</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=Lzb33Ku8k_w" target="_blank" class="song-link">
+                    <span class="song-title">不要說話</span>
+                    <span class="song-artist">陳奕迅</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=DduKGmRCqio" target="_blank" class="song-link">
+                    <span class="song-title">不藥而癒</span>
+                    <span class="song-artist">郭靜</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=pxU0KPinGpM" target="_blank" class="song-link">
+                    <span class="song-title">天使之翼</span>
+                    <span class="song-artist">戴愛玲</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=kU-lgFin_rQ" target="_blank" class="song-link">
+                    <span class="song-title">可愛美眉</span>
+                    <span class="song-artist">張信哲</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=iFqVovL06Fo" target="_blank" class="song-link">
+                    <span class="song-title">我的快樂</span>
+                    <span class="song-artist">錦繡二重唱</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=z6zZSVtsqrc" target="_blank" class="song-link">
+                    <span class="song-title">花很迷惘</span>
+                    <span class="song-artist">吳忠明/葉瑋庭</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=KTISbg9QQhg" target="_blank" class="song-link">
+                    <span class="song-title">神秘嘉賓</span>
+                    <span class="song-artist">林宥嘉</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=8Uv8mtYoroc" target="_blank" class="song-link">
+                    <span class="song-title">陪我歌唱</span>
+                    <span class="song-artist">蘇打綠</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=LgvBXXLC5AI" target="_blank" class="song-link">
+                    <span class="song-title">殘酷月光</span>
+                    <span class="song-artist">林宥嘉</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=3O8rmZ-Q25o" target="_blank" class="song-link">
+                    <span class="song-title">新歌試唱</span>
+                    <span class="song-artist">張棟樑</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=nPcByqGfxQo" target="_blank" class="song-link">
+                    <span class="song-title">一百種生活</span>
+                    <span class="song-artist">盧廣仲</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=CGfZNAOkpkk" target="_blank" class="song-link">
+                    <span class="song-title">王子的新衣</span>
+                    <span class="song-artist">蕭敬騰</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=vyq8izxLwBM" target="_blank" class="song-link">
+                    <span class="song-title">男人KTV</span>
+                    <span class="song-artist">胡彥斌</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=tIYhGYuLQ1w" target="_blank" class="song-link">
+                    <span class="song-title">想你的習慣</span>
+                    <span class="song-artist">小宇</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=4ik9v7BnSjg" target="_blank" class="song-link">
+                    <span class="song-title">一顆心的距離</span>
+                    <span class="song-artist">范瑋琪</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=kPAcTAce8I0" target="_blank" class="song-link">
+                    <span class="song-title">幸運草的祝福</span>
+                    <span class="song-artist">Clover</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=sslCGx5Pwkg" target="_blank" class="song-link">
+                    <span class="song-title">歌手與模特兒</span>
+                    <span class="song-artist">方大同</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=uB2XYiPo5O0" target="_blank" class="song-link">
+                    <span class="song-title">永不消失的彩虹</span>
+                    <span class="song-artist">卓文萱</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=sL2iLKmVlPI" target="_blank" class="song-link">
+                    <span class="song-title">連哭都是我的錯</span>
+                    <span class="song-artist">東來東往</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=S2N5ho1-ArE" target="_blank" class="song-link">
+                    <span class="song-title">有人為妳偷偷在哭</span>
+                    <span class="song-artist">蘇永康</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=JdRkyr49iu4" target="_blank" class="song-link">
+                    <span class="song-title">你是此生最美的風景</span>
+                    <span class="song-artist">JS</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=8LgaobiCAxo" target="_blank" class="song-link">
+                    <span class="song-title">不要用我的愛來傷害我</span>
+                    <span class="song-artist">韓晶</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=dm-zXNF65UY" target="_blank" class="song-link">
+                    <span class="song-title">沒有你的日子我真的好孤單</span>
+                    <span class="song-artist">韓晶</span>
+                </a>
+            </div>
+            
+            <div class="song-item">
+                <a href="https://www.youtube.com/watch?v=_KCdNPAneAM" target="_blank" class="song-link">
+                    <span class="song-title">原來我最愛的人是你不是他</span>
+                    <span class="song-artist">林健輝</span>
+                </a>
+            </div>
+            
+    </div>
+</body>
+</html>
+        
