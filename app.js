@@ -22,9 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const headers = lines[0].split(',');
 
         return lines.slice(1).map(line => {
-            // Handle simple CSV parsing (assuming no commas in fields for now based on previous simple structure)
-            // If fields contain commas, regex split would be needed: line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
-            const values = line.split(',');
+            // Handle CSV parsing with support for quoted headers containing commas
+            // Regex splits by comma ONLY if followed by an even number of quotes (meaning outside of quotes)
+            const values = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(val => {
+                // Remove surrounding quotes if present and unescape double quotes
+                val = val.trim();
+                if (val.startsWith('"') && val.endsWith('"')) {
+                    val = val.slice(1, -1).replace(/""/g, '"');
+                }
+                return val;
+            });
 
             // Reconstruct object based on headers: 曲名,演唱歌手,冊別,頁別,備註
             // Map index to known fields to ensure safety if order changes
