@@ -54,13 +54,14 @@ def main():
 
     # Generate HTML
     
-    nav_buttons_html = ""
+    nav_select_html = '<div class="select-wrapper">\n'
+    nav_select_html += '        <select class="vol-select" onchange="if(this.value) window.location.href=this.value">\n'
+    nav_select_html += '            <option value="" disabled selected>選擇期數 (Select Volume)</option>\n'
     for vol in sorted_volumes:
-        # Check if file 'exists' conceptually - we link to it regardless, 
-        # assuming the batch process will create it.
-        # Format: index_161.html
         link = f"index_{vol}.html"
-        nav_buttons_html += f'<a href="{link}" class="nav-button">第 {vol} 期</a>\n'
+        nav_select_html += f'            <option value="{link}">第 {vol} 期</option>\n'
+    nav_select_html += '        </select>\n'
+    nav_select_html += '    </div>'
 
     song_list_html = ""
     for song in all_songs:
@@ -92,37 +93,49 @@ def main():
             background-color: #f5f5f7;
             color: #1d1d1f;
         }}
+
         h1 {{
             text-align: center;
             margin-bottom: 30px;
             color: #1d1d1f;
         }}
+
         .nav-container {{
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
             margin-bottom: 40px;
         }}
-        .nav-button {{
-            background-color: #0071e3;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 20px;
-            font-weight: 500;
+
+        .vol-select {{
+            padding: 12px 40px 12px 20px;
+            font-size: 16px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
+            background-color: white;
+            cursor: pointer;
+            min-width: 200px;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%230071e3%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 12px auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            color: #1d1d1f;
             transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }}
-        .nav-button:hover {{
-            background-color: #0077ed;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+        .vol-select:hover, .vol-select:focus {{
+            border-color: #0071e3;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(0,113,227,0.1);
         }}
+
         .search-container {{
             margin-bottom: 20px;
             text-align: center;
         }}
+
         #searchInput {{
             padding: 12px;
             width: 80%;
@@ -131,6 +144,7 @@ def main():
             border-radius: 10px;
             font-size: 16px;
         }}
+
         .song-table {{
             width: 100%;
             border-collapse: separate;
@@ -138,24 +152,30 @@ def main():
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }}
-        .song-table th, .song-table td {{
+
+        .song-table th,
+        .song-table td {{
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #e5e5e5;
         }}
+
         .song-table th {{
             background-color: #fbfbfd;
             font-weight: 600;
             color: #86868b;
         }}
+
         .song-table tr:last-child td {{
             border-bottom: none;
         }}
+
         .song-table tr:hover {{
             background-color: #f5f5f7;
         }}
+
         .vol-tag {{
             background-color: #e8e8ed;
             padding: 4px 8px;
@@ -164,47 +184,59 @@ def main():
             color: #1d1d1f;
             display: inline-block;
         }}
+
         a.song-link {{
             color: #0066cc;
             text-decoration: none;
         }}
+
         a.song-link:hover {{
             text-decoration: underline;
         }}
     </style>
     <script>
-        function filterSongs() {{
-            var input, filter, table, tr, tdTitle, tdArtist, i, txtValueTitle, txtValueArtist;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("songTable");
-            tr = table.getElementsByTagName("tr");
-            
-            for (i = 1; i < tr.length; i++) {{
-                tdTitle = tr[i].getElementsByTagName("td")[1];
-                tdArtist = tr[i].getElementsByTagName("td")[2];
-                if (tdTitle || tdArtist) {{
-                    txtValueTitle = tdTitle.textContent || tdTitle.innerText;
-                    txtValueArtist = tdArtist.textContent || tdArtist.innerText;
-                    if (txtValueTitle.toUpperCase().indexOf(filter) > -1 || txtValueArtist.toUpperCase().indexOf(filter) > -1) {{
-                        tr[i].style.display = "";
-                    }} else {{
-                        tr[i].style.display = "none";
+        document.addEventListener('DOMContentLoaded', () => {{
+            const searchInput = document.getElementById("searchInput");
+            const table = document.getElementById("songTable");
+            const tr = table.getElementsByTagName("tr");
+
+            const filterSongs = () => {{
+                const filter = searchInput.value.toUpperCase();
+
+                // Start from i=1 to skip header
+                for (let i = 1; i < tr.length; i++) {{
+                    const tdTitle = tr[i].getElementsByTagName("td")[1];
+                    const tdArtist = tr[i].getElementsByTagName("td")[2];
+
+                    if (tdTitle || tdArtist) {{
+                        const txtValueTitle = tdTitle.textContent || tdTitle.innerText;
+                        const txtValueArtist = tdArtist.textContent || tdArtist.innerText;
+
+                        if (txtValueTitle.toUpperCase().indexOf(filter) > -1 ||
+                            txtValueArtist.toUpperCase().indexOf(filter) > -1) {{
+                            tr[i].style.display = "";
+                        }} else {{
+                            tr[i].style.display = "none";
+                        }}
                     }}
                 }}
-            }}
-        }}
+            }};
+
+            // Use 'input' event instead of 'keyup' for better IME support (Chinese input)
+            searchInput.addEventListener('input', filterSongs);
+        }});
     </script>
 </head>
+
 <body>
     <h1>最新排行 YouTube 歌單總目錄</h1>
-    
+
     <div class="nav-container">
-        {nav_buttons_html}
+        {nav_select_html}
     </div>
 
     <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterSongs()" placeholder="搜尋歌名、歌手...">
+        <input type="text" id="searchInput" placeholder="搜尋歌名、歌手...">
     </div>
 
     <table class="song-table" id="songTable">
